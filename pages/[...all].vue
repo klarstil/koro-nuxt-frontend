@@ -23,7 +23,7 @@ const buyingArguments = [
         <div class="flex flex-row flex-wrap justify-start">
             <div class="basis-8/12">
                 <div class="columns-4 gap-5 [&>img:not(:first-child)]:mt-8 pt-4">
-                    <NuxtImg v-for="(item, index) in images" :key="index" :src="item" :alt="`White almond butter 500g Picture #${index}`">
+                    <NuxtImg v-for="(item, index) in images" :key="index" :src="item" :alt="`White almond butter 500g Picture #${index}`" sizes="sm:100vw md:50vw lg:280px">
                     </NuxtImg>
                 </div>
             </div>
