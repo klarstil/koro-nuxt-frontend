@@ -97,7 +97,9 @@ export default defineNuxtConfig({
     },
 
     robots: {
-        UserAgent: '*',
-        Disallow: '',
+        rules: {
+            UserAgent: '*',
+            Disallow: '/',
+        },
     },
 });
