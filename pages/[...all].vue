@@ -23,7 +23,7 @@ const buyingArguments = [
         <div class="flex flex-row flex-wrap justify-start">
             <div class="basis-8/12">
                 <div class="columns-4 gap-5 [&>img:not(:first-child)]:mt-8 pt-4">
-                    <NuxtImg v-for="(item, index) in images" :key="index" :src="item">
+                    <NuxtImg v-for="(item, index) in images" :key="index" :src="item" :alt="`White almond butter 500g Picture #${index}`">
                     </NuxtImg>
                 </div>
             </div>
@@ -44,8 +44,16 @@ const buyingArguments = [
                     </ul>
 
                     <div class="flex flex-row">
-                        <input type="number" min="1" max="12" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm block p-2.5 mr-2" value="1">
-                        <button type="button" class="focus:outline-none text-white bg-green-600 block focus:ring-green-300 font-medium rounded text-sm p-2.5 w-full">
+                        <label for="quantitiy-select" class="sr-only">Quantity</label>
+                        <input
+                            id="quantitiy-select"
+                            type="number"
+                            min="1"
+                            max="12"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm block p-2.5 mr-2"
+                            value="1"
+                        >
+                        <button type="button" class="focus:outline-none text-white bg-green-700 block focus:ring-green-300 font-medium rounded text-sm p-2.5 w-full">
                             Add to shopping cart
                         </button>
                     </div>

@@ -46,7 +46,6 @@ export default defineEventHandler(async(event) => {
                 category: faker.commerce.department(),
                 productImages: [...Array(5)].map(() => {
                     return {
-                        url: faker.image.urlLoremFlickr({ category: 'nature' }),
                         name: `${productName} Image`,
                         fileName: faker.system.commonFileName('jpg'),
                         size: {
