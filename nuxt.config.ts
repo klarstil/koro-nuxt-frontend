@@ -51,7 +51,6 @@ export default defineNuxtConfig({
 
     nitro: {
         compressPublicAssets: true,
-        preset: 'vercel-edge',
         prerender: {
             crawlLinks: true,
         },
