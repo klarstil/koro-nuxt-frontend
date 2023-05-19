@@ -9,7 +9,7 @@ const delay = (timeout = 2000) => {
 export default defineEventHandler(async(event) => {
     const query = getQuery(event);
     let limit = 12;
-    let timeout = 2000;
+    let timeout = 0;
 
     if (query.limit) {
         limit = parseInt(query.limit as string);
