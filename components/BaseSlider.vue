@@ -3,7 +3,7 @@ import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Navigation, Pagination } from 'vue3-carousel';
 
 const isLoading = ref(true);
-const { data } = await useFetch('/api/placeholder?limit=12&delay=5000', {
+const { data } = await useFetch('/api/placeholder?limit=12', {
     onResponse() {
         isLoading.value = false;
     },
