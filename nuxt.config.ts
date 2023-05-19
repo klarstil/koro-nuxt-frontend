@@ -6,6 +6,7 @@ export default defineNuxtConfig({
         '@nuxt/image-edge',
         '@vueuse/nuxt',
         '@shopware-pwa/nuxt3-module',
+        '@nuxtjs/robots',
     ],
 
     app: {
@@ -93,5 +94,10 @@ export default defineNuxtConfig({
 
     devtools: {
         enabled: true,
+    },
+
+    robots: {
+        UserAgent: '*',
+        Disallow: '',
     },
 });

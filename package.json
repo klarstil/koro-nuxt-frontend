@@ -42,6 +42,7 @@
     "stylelint-config-standard-vue": "^1.0.0"
   },
   "dependencies": {
+    "@nuxtjs/robots": "^3.0.0",
     "@shopware-pwa/api-client": "^0.3.1",
     "@shopware-pwa/composables-next": "^0.7.1",
     "@shopware-pwa/helpers-next": "^0.1.26",

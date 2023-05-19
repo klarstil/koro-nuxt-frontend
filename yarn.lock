@@ -845,7 +845,7 @@
   optionalDependencies:
     ipx "1.0.0"
 
-"@nuxt/kit@3.5.0", "@nuxt/kit@^3.3.2", "@nuxt/kit@^3.3.3", "@nuxt/kit@^3.4.0", "@nuxt/kit@^3.4.3", "@nuxt/kit@^3.5.0":
+"@nuxt/kit@3.5.0", "@nuxt/kit@^3.0.0", "@nuxt/kit@^3.3.2", "@nuxt/kit@^3.3.3", "@nuxt/kit@^3.4.0", "@nuxt/kit@^3.4.3", "@nuxt/kit@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.5.0.tgz#ae8d8a64936714b3603230a2861539f95dbd218e"
   integrity sha512-QqhOPTan5cpaYCksSWdmtpldCGfnsqTd55blztMSF+OPxfGav4GE4BrBD3ZSMn2/5MxieF3GU/w5/tgcDXE3bA==
@@ -1015,6 +1015,14 @@
     eslint-plugin-unicorn "^44.0.2"
     eslint-plugin-vue "^9.7.0"
     local-pkg "^0.4.2"
+
+"@nuxtjs/robots@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/robots/-/robots-3.0.0.tgz#057f0a68d847f22c36b4e574b456173e3f3d80b0"
+  integrity sha512-qsHGW1KXBvV5Kq7u3huPnFCUTbHS4Fk8Za2mNPgmUXcwLgp3exvhPtdZfIdjrCF/aZk3A8OZONNmGghs6CecBA==
+  dependencies:
+    "@nuxt/kit" "^3.0.0"
+    h3 "^1.0.1"
 
 "@nuxtjs/tailwindcss@^6.7.0":
   version "6.7.0"
@@ -4430,7 +4438,7 @@ gzip-size@^7.0.0:
   dependencies:
     duplexer "^0.1.2"
 
-h3@^1.6.4, h3@^1.6.6:
+h3@^1.0.1, h3@^1.6.4, h3@^1.6.6:
   version "1.6.6"
   resolved "https://registry.yarnpkg.com/h3/-/h3-1.6.6.tgz#f7da8517ae3bf906716975e38f2d3c24ab79a239"
   integrity sha512-DWu2s11OuuO9suEkX99dXaJoxd1RgPXiM4iDmLdrhGV63GLoav13f3Kdd5/Rw7xNKzhzn2+F2dleQjG66SnMPQ==
