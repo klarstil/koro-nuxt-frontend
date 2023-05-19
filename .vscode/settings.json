@@ -1,0 +1,29 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
+  "scss.lint.unknownAtRules": "ignore",
+  "css.validate": false,
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "vue": "html",
+    "vue-html": "html",
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.inlineSuggest.enabled": true,
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "tailwindCSS.experimental.configFile": ".nuxt/tailwind.config.cjs",
+  "stylelint.validate": [
+    "vue"
+  ]
+}

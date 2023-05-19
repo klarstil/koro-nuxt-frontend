@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+      "bradlc.vscode-tailwindcss",
+      "johnsoncodehk.vscode-typescript-vue-plugin",
+      "stylelint.vscode-stylelint",
+      "vue.volar",
+      "Nuxtr.nuxtr-vscode"
+    ]
+  }

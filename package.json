@@ -1,0 +1,62 @@
+{
+  "private": true,
+  "type": "module",
+  "overrides": {
+    "vue": "3"
+  },
+  "engines": {
+    "node": "^16.13.2 || ^18.14.2",
+    "npm": "^8.1.2 || ^9.5.0"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt generate && nuxt preview",
+    "analyze": "nuxi analyze",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint . --ext .js,.vue,.ts",
+    "lint:styles": "stylelint **/*.{vue,css,scss,sass}",
+    "fix": "eslint . --fix --ext .js,.vue,.ts",
+    "fix:styles": "stylelint --fix **/*.{vue,css,scss,sass}"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.1",
+    "@nuxt/devtools": "^0.5.0",
+    "@nuxt/image-edge": "^1.0.0-28059208.2abef1b",
+    "@nuxt/types": "^2.16.3",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@nuxtjs/tailwindcss": "^6.7.0",
+    "@types/feather-icons": "^4.29.1",
+    "@typescript-eslint/parser": "^5.59.6",
+    "@vueuse/core": "^10.1.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.40.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-vue": "^9.13.0",
+    "nuxt": "^3.5.0",
+    "postcss-html": "^1.5.0",
+    "sass": "^1.62.1",
+    "stylelint": "^15.6.2",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-config-standard-vue": "^1.0.0"
+  },
+  "dependencies": {
+    "@shopware-pwa/api-client": "^0.3.1",
+    "@shopware-pwa/composables-next": "^0.7.1",
+    "@shopware-pwa/helpers-next": "^0.1.26",
+    "@shopware-pwa/nuxt3-module": "^0.3.1",
+    "@types/js-cookie": "^3.0.3",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vueuse/nuxt": "^10.1.2",
+    "axios": "^1.4.0",
+    "feather-icons": "^4.29.0",
+    "js-cookie": "^3.0.5",
+    "postcss": "^8.4.23",
+    "scule": "^1.0.0",
+    "typescript": "^5.0.4",
+    "vue-i18n": "9",
+    "vue-tsc": "1.6.5",
+    "vue3-carousel": "^0.3.1"
+  }
+}
