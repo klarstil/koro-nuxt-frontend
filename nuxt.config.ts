@@ -75,8 +75,8 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             shopware: {
-                shopwareEndpoint: 'http://sw-dev.site',
-                shopwareAccessToken: 'SWSCELPUR2FZTULCAW8XALDOQG',
+                shopwareEndpoint: 'https://www.korodrogerie.de',
+                shopwareAccessToken: 'SWSCTNNXAGVLUVDQDHNCCVFQQW',
             },
         },
     },

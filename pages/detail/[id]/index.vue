@@ -1,5 +1,20 @@
 <script setup lang="ts">
-// const { data } = await useFetch('/api/placeholder?limit=24');
+import { getFormattedPrice } from '@shopware-pwa/helpers-next';
+
+const { search } = useProductSearch();
+const route = useRoute();
+
+const productId = route.params.id as string;
+
+const { data } = await useAsyncData(
+    `product-detail-${productId}`,
+    async() => {
+        return await search(productId);
+    },
+);
+
+const { product } = useProduct(data.value?.product);
+
 const images = [
     '/fe/ef/95/1665569185/MUS_005_NEU_01_AK (2).jpg',
     '/f1/a2/c1/1665569186/MUS_005_NEU_05_AK (2).jpg',
@@ -9,13 +24,9 @@ const images = [
     '/99/e5/e4/1665569248/MUS_005_NEU_07_AK (1).jpg',
     '/09/41/79/1665569249/MUS_005_NEU_02_AK.jpg',
 ];
-const buyingArguments = [
-    '100% blanched almonds',
-    'Source of protein',
-    'No added sugar and no salt - contains natural sugar',
-    'Incomparably creamy',
-    'Can be used as a topping on sweet dishes and also enhances your savory creations',
-];
+const rawArguments = product.value.customFields.koro_buying_arguments as string;
+const buyingArguments = rawArguments.split('\n');
+
 </script>
 
 <template>
@@ -37,11 +48,11 @@ const buyingArguments = [
             <div class="basis-4/12">
                 <div class="p-4">
                     <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 mb-4">
-                        White almond butter 500g
+                        {{ product.name }}
                     </h1>
 
                     <p class="text-xl">
-                        12.50€*
+                        {{ getFormattedPrice(product.calculatedPrice.unitPrice, '€') }}
                     </p>
 
                     <ul v-if="buyingArguments.length" class="list-disc m-4">
@@ -69,6 +80,7 @@ const buyingArguments = [
         </div>
 
         <div class="my-8">
+            <NuxtPage></NuxtPage>
             <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 mb-4">
                 Client side only slider component
             </h1>
