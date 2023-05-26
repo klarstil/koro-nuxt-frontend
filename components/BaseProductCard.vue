@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-        <img :src="product.cover.media.thumbnails[1].url" class="rounded-t-lg" width="370" height="518">
+        <img :src="product.cover.media.thumbnails[1].url" class="rounded-t-lg" width="370" height="518" :alt="(product?.name as string)">
         <div class="p-5">
             <NuxtLink :to="`/detail/${product.id}`">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
