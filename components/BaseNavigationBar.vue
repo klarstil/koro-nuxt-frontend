@@ -26,3 +26,9 @@ const { navigationElements } = useNavigation();
         </ul>
     </nav>
 </template>
+
+<style scoped>
+.router-link-exact-active {
+    @apply border-b-2 border-black;
+}
+</style>

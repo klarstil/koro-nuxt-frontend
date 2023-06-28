@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { getFormattedPrice } from '@shopware-pwa/helpers-next';
+
+const { totalPrice } = useCart();
 </script>
 
 <template>
@@ -50,7 +53,7 @@
 
         <button class="flex justify-between hover:bg-gray-100 rounded-lg content-center flex-wrap px-4">
             <BaseIcon name="shopping-cart" class="text-gray-700 mr-2"></BaseIcon>
-            0,00 €
+            {{ getFormattedPrice(totalPrice, '€') }}
         </button>
     </div>
 

@@ -1,12 +1,10 @@
 export default defineNuxtConfig({
     // Nuxt.js specific settings
-    /* @ts-ignore */
     modules: [
         '@nuxtjs/tailwindcss',
         '@nuxt/image-edge',
         '@vueuse/nuxt',
         '@shopware-pwa/nuxt3-module',
-        '@shopware-pwa/cms-base',
         '@nuxtjs/robots',
     ],
 
@@ -57,7 +55,7 @@ export default defineNuxtConfig({
             '/detail/**': { isr: true },
         },
         storage: {
-            db: {
+            cache: {
                 driver: 'vercelKV',
             },
         },
