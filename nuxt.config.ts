@@ -55,15 +55,13 @@ export default defineNuxtConfig({
             '/detail/**': { isr: true },
         },
         storage: {
+            db: {
+                driver: 'vercelKV',
+            },
             cache: {
                 driver: 'vercelKV',
             },
         },
-    },
-
-    components: {
-        dirs: ['~/components'],
-        global: true,
     },
 
     // Module settings
@@ -90,6 +88,10 @@ export default defineNuxtConfig({
                 auto: 'format,compress',
             },
         },
+    },
+
+    experimental: {
+        componentIslands: true,
     },
 
     devtools: {

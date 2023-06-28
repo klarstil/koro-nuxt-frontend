@@ -24,7 +24,6 @@ const { data: seoResult } = await useAsyncData(
 const { foreignKey, routeName } = useNavigationContext(
   seoResult as Ref<SeoUrl>,
 );
-console.log(foreignKey.value, routeName.value);
 </script>
 
 <template>

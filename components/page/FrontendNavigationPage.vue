@@ -24,12 +24,7 @@ const { data: categoryResponse } = await useAsyncData(
     },
 );
 
-const breadcrumbs = getCategoryBreadcrumbs(categoryResponse.value, {
-    startIndex: 2,
-});
-
-const { category } = useCategory(categoryResponse as Ref<Category>);
-console.log(category);
+console.log(categoryResponse);
 </script>
 
 <template>
