@@ -1,6 +1,14 @@
 export default {
     content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
     theme: {
+        extend: {
+            maxWidth: {
+                30: '30px',
+            },
+            maxHeight: {
+                30: '30px',
+            },
+        },
         borderWidth: {
             DEFAULT: '1px',
             0: '0',
