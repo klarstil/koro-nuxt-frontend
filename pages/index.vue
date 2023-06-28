@@ -12,6 +12,7 @@ const { data: categoryResponse } = await useAsyncData(
         return category;
     },
 );
+console.log(categoryResponse);
 const { category } = useCategory(categoryResponse as Ref<Category>);
 
 </script>
