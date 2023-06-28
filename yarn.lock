@@ -1268,6 +1268,20 @@
     axios "^0.27.2"
     query-string "^8.1.0"
 
+"@shopware-pwa/cms-base@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@shopware-pwa/cms-base/-/cms-base-0.6.1.tgz#dcefd4daeab687ba7d833bb6714d0d2466efdc8c"
+  integrity sha512-Zpv+i85iK6U/JdE0VY6mPr347dzRyvdH+E+U6evPcscl3kKJWHpVFh0gGS63yW/U70c6KCDUXdHjkii7Paj9ug==
+  dependencies:
+    "@nuxt/kit" "^3.6.0"
+    "@shopware-pwa/api-client" "0.5.0"
+    "@shopware-pwa/composables-next" "0.10.0"
+    "@shopware-pwa/helpers-next" "0.3.0"
+    "@vuelidate/core" "^2.0.2"
+    "@vuelidate/validators" "^2.0.2"
+    entities "^4.5.0"
+    html-to-ast "^0.0.6"
+
 "@shopware-pwa/composables-next@0.10.0", "@shopware-pwa/composables-next@^0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/@shopware-pwa/composables-next/-/composables-next-0.10.0.tgz#bd41b953aa325954b564c548abd1577d551b7108"
@@ -1990,6 +2004,20 @@
   dependencies:
     "@volar/typescript" "1.7.9"
     "@vue/language-core" "1.8.2"
+
+"@vuelidate/core@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@vuelidate/core/-/core-2.0.2.tgz#e874afc830ccc5295e83a0c0a0f0621e084348c9"
+  integrity sha512-aG1OZWv6xVws3ljyKy/pyxq1rdZZ2ryj+FEREcC9d4GP4qOvNHHZUl/NQxa0Bck3Ooc0RfXU8vwCA9piRoWy6w==
+  dependencies:
+    vue-demi "^0.13.11"
+
+"@vuelidate/validators@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@vuelidate/validators/-/validators-2.0.2.tgz#8b372b7d6f056d161f1fb551f063e3c83cb97d5e"
+  integrity sha512-6y6QLoK567XVmaLP3Paf1vkg6K2zO6xax3yTyczy1RnJ4PsLDLLGzP1PFzSpwb16aw4CKduBgI63HvIuctJhQg==
+  dependencies:
+    vue-demi "^0.13.11"
 
 "@vueuse/core@10.2.0", "@vueuse/core@^10.2.0":
   version "10.2.0"
@@ -3541,7 +3569,7 @@ enhanced-resolve@^5.12.0, enhanced-resolve@^5.14.1:
     graceful-fs "^4.2.4"
     tapable "^2.2.0"
 
-entities@^4.2.0, entities@^4.4.0:
+entities@^4.2.0, entities@^4.4.0, entities@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/entities/-/entities-4.5.0.tgz#5d268ea5e7113ec74c4d033b79ea5a35a488fb48"
   integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
@@ -4766,6 +4794,11 @@ html-tags@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.3.1.tgz#a04026a18c882e4bba8a01a3d39cfe465d40b5ce"
   integrity sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==
+
+html-to-ast@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/html-to-ast/-/html-to-ast-0.0.6.tgz#d3c2b84d7e1dd38b3a1295e2ea5c0600964c64c6"
+  integrity sha512-gAq/8l6laJ8cTufIhh9lMvonShc8xBzAth+t7yK6oDla8rMVGKyYqToa7HgZyPKyi1KTX+HBTvQg2uQ3wc7Q9w==
 
 htmlparser2@^8.0.0:
   version "8.0.2"
@@ -9049,6 +9082,11 @@ vue-demi@>=0.14.5:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.14.5.tgz#676d0463d1a1266d5ab5cba932e043d8f5f2fbd9"
   integrity sha512-o9NUVpl/YlsGJ7t+xuqJKx8EBGf1quRhCiT6D/J0pfwmk9zUwYkC7yrF4SZCe6fETvSM3UNL2edcbYrSyc4QHA==
+
+vue-demi@^0.13.11:
+  version "0.13.11"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.13.11.tgz#7d90369bdae8974d87b1973564ad390182410d99"
+  integrity sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==
 
 vue-devtools-stub@^0.1.0:
   version "0.1.0"

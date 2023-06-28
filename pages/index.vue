@@ -1,37 +1,47 @@
 <script setup lang="ts">
-import { Category } from '@shopware-pwa/types';
+import { SeoUrl, Category } from '@shopware-pwa/types';
 
-const { search } = useCategorySearch();
-const { data: categoryResponse } = await useAsyncData(
-    'navigation-41b852bf83134c8a9a9b89fea74b023c',
+const { resolvePath } = useNavigationSearch();
+const route = useRoute();
+const routePath = route.path;
+const { data: seoResult } = await useAsyncData(
+    'cmsResponse' + routePath,
     async() => {
-        return await search('41b852bf83134c8a9a9b89fea74b023c', {
-            withCmsAssociations: true,
-        });
+    // For client links if the history state contains seo url information we can omit the api call
+        if (process.client) {
+            if (history.state?.routeName) {
+                return {
+                    routeName: history.state?.routeName,
+                    foreignKey: history.state?.foreignKey,
+                };
+            }
+        }
+        const seoUrl = await resolvePath(routePath);
+        return seoUrl;
     },
 );
 
-const { category } = useCategory(categoryResponse as Ref<Category>);
-const listing = category.value.cmsPage?.sections[0].blocks[3].slots[0];
-const {
-    getElements,
-    setInitialListing,
-} = useListing({
-    listingType: 'categoryListing',
-    defaultSearchCriteria: {
-        p: 1,
-        limit: 12,
-    },
-});
+const { foreignKey } = useNavigationContext(
+  seoResult as Ref<SeoUrl>,
+);
 
-// @ts-ignore
-setInitialListing(listing?.data?.listing);
+const { search } = useCategorySearch();
+
+const { data: categoryResponse } = await useAsyncData(
+    'cmsNavigation' + foreignKey.value,
+    async() => {
+        const category = await search(foreignKey.value, {
+            withCmsAssociations: true,
+            query: {
+                ...route.query,
+            },
+        });
+        return category;
+    },
+);
+const { category } = useCategory(categoryResponse as Ref<Category>);
 </script>
 
 <template>
-    <div class="container mx-auto pt-4">
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
-            <BaseProductCard v-for="item in getElements" :key="item.id" :product="item"></BaseProductCard>
-        </div>
-    </div>
+    <CmsPage v-if="category?.cmsPage" :content="category.cmsPage"></CmsPage>
 </template>

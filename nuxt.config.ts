@@ -6,6 +6,7 @@ export default defineNuxtConfig({
         '@nuxt/image-edge',
         '@vueuse/nuxt',
         '@shopware-pwa/nuxt3-module',
+        '@shopware-pwa/cms-base',
         '@nuxtjs/robots',
     ],
 
