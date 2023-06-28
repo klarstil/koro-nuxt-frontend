@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { loadNavigationElements } = useNavigation();
 const { data } = useAsyncData('mainNavigation', () => {
-    return loadNavigationElements({ depth: 2 });
+    return loadNavigationElements({ depth: 1 });
 });
 provide('swNavigation-main-navigation', data);
 

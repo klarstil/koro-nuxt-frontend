@@ -51,14 +51,9 @@ export default defineNuxtConfig({
     },
 
     nitro: {
-        compressPublicAssets: true,
         routeRules: {
             '/detail/**': { isr: true },
         },
-    },
-
-    experimental: {
-        payloadExtraction: true,
     },
 
     components: {

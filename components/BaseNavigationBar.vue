@@ -6,13 +6,13 @@ const { navigationElements } = useNavigation();
 
 <template>
     <nav class="container mx-auto">
-        <ul class="flex flex-row gap-5 whitespace-nowra">
+        <ul class="flex flex-row gap-10 whitespace-nowrap">
             <li
                 v-for="navigationElement in navigationElements"
                 :key="navigationElement.id"
             >
                 <RouterLink
-                    class="text-sm hover:border-b-2 hover:border-black"
+                    class="text-xs hover:border-b-2 hover:border-black"
                     :to="getCategoryUrl(navigationElement)"
                     :target="
                         navigationElement.externalLink || navigationElement.linkNewTab
