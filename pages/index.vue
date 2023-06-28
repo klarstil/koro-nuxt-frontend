@@ -4,15 +4,14 @@ import { Category } from '@shopware-pwa/types';
 const { search } = useCategorySearch();
 
 const { data: categoryResponse } = await useAsyncData(
-    'cmsNavigation-0380b3a07e494a35b91e842d28d9b56b',
+    'cmsNavigation-16c65d351d8e489aacd2ab82c259b4fa',
     async() => {
-        const category = await search('0380b3a07e494a35b91e842d28d9b56b', {
+        const category = await search('16c65d351d8e489aacd2ab82c259b4fa', {
             withCmsAssociations: true,
         });
         return category;
     },
 );
-console.log(categoryResponse);
 const { category } = useCategory(categoryResponse as Ref<Category>);
 
 </script>
