@@ -53,6 +53,7 @@ export default defineNuxtConfig({
 
     nitro: {
         routeRules: {
+            '/**': { isr: true },
             '/detail/**': { isr: true },
         },
     },
