@@ -56,6 +56,11 @@ export default defineNuxtConfig({
             '/**': { isr: true },
             '/detail/**': { isr: true },
         },
+        storage: {
+            db: {
+                driver: 'vercelKV',
+            },
+        },
     },
 
     components: {

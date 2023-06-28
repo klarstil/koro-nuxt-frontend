@@ -46,6 +46,7 @@
     "@shopware-pwa/helpers-next": "^0.3.0",
     "@shopware-pwa/nuxt3-module": "^0.3.6",
     "@types/js-cookie": "^3.0.3",
+    "@vercel/kv": "^0.2.2",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vueuse/nuxt": "^10.2.0",
     "axios": "^1.4.0",
