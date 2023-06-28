@@ -1,45 +1,19 @@
 <script setup lang="ts">
-import { SeoUrl, Category } from '@shopware-pwa/types';
-
-const { resolvePath } = useNavigationSearch();
-const route = useRoute();
-const routePath = route.path;
-const { data: seoResult } = await useAsyncData(
-    'cmsResponse' + routePath,
-    async() => {
-    // For client links if the history state contains seo url information we can omit the api call
-        if (process.client) {
-            if (history.state?.routeName) {
-                return {
-                    routeName: history.state?.routeName,
-                    foreignKey: history.state?.foreignKey,
-                };
-            }
-        }
-        const seoUrl = await resolvePath(routePath);
-        return seoUrl;
-    },
-);
-
-const { foreignKey } = useNavigationContext(
-  seoResult as Ref<SeoUrl>,
-);
+import { Category } from '@shopware-pwa/types';
 
 const { search } = useCategorySearch();
 
 const { data: categoryResponse } = await useAsyncData(
-    'cmsNavigation' + foreignKey.value,
+    'cmsNavigation-0380b3a07e494a35b91e842d28d9b56b',
     async() => {
-        const category = await search(foreignKey.value, {
+        const category = await search('0380b3a07e494a35b91e842d28d9b56b', {
             withCmsAssociations: true,
-            query: {
-                ...route.query,
-            },
         });
         return category;
     },
 );
 const { category } = useCategory(categoryResponse as Ref<Category>);
+
 </script>
 
 <template>
