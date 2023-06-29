@@ -51,12 +51,14 @@ export default defineNuxtConfig({
     },
 
     nitro: {
+        prerender: {
+            crawlLinks: true,
+        },
         future: {
             nativeSWR: true,
         },
         routeRules: {
-            '/**': { isr: true },
-            '/detail/**': { isr: true },
+            '/**': { swr: true },
         },
         storage: {
             db: {
