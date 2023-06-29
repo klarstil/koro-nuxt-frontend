@@ -35,23 +35,24 @@ const { totalPrice } = useCart();
     </nav>
 
     <div class="main-header flex flex-row justify-between py-4 container mx-auto">
-        <NuxtLink to="/">
+        <NuxtLink to="/" title="Back to homepage">
             <NuxtImg
+                alt="Back to homepage"
                 src="https://koro.imgix.net/media/66/f7/5b/1662581399/koro-logoPXS2yC9zKwHVo.svg"
             ></NuxtImg>
         </NuxtLink>
 
         <input type="search" class="grow bg-gray-100 text-gray-900 text-sm rounded-lg mx-4 px-6" placeholder="Search products...">
 
-        <button class="hover:bg-gray-100 rounded-lg">
+        <button class="hover:bg-gray-100 rounded-lg" title="Wishlist">
             <BaseIcon name="heart" class="text-gray-700 mx-4"></BaseIcon>
         </button>
 
-        <button class="hover:bg-gray-100 rounded-lg">
+        <button class="hover:bg-gray-100 rounded-lg" title="User account">
             <BaseIcon name="user" class="text-gray-700 mx-4"></BaseIcon>
         </button>
 
-        <button class="flex justify-between hover:bg-gray-100 rounded-lg content-center flex-wrap px-4">
+        <button class="flex justify-between hover:bg-gray-100 rounded-lg content-center flex-wrap px-4" title="Shopping cart">
             <BaseIcon name="shopping-cart" class="text-gray-700 mr-2"></BaseIcon>
             {{ getFormattedPrice(totalPrice, '€') }}
         </button>

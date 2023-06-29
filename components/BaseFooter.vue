@@ -11,8 +11,9 @@ const { navigationElements } = useNavigation({ type: 'footer-navigation' });
     <footer class="main-footer container mx-auto">
         <div class="grid gap-4 grid-cols-5 py-12">
             <div class="main-footer-logo">
-                <NuxtLink to="/">
+                <NuxtLink to="/" title="Back to homepage">
                     <NuxtImg
+                        alt="Back to homepage"
                         src="https://koro.imgix.net/media/66/f7/5b/1662581399/koro-logoPXS2yC9zKwHVo.svg"
                     ></NuxtImg>
                 </NuxtLink>
