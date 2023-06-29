@@ -55,7 +55,7 @@ defineProps<{
                 {{ getTranslatedProperty(item, 'name') }}
             </div>
 
-            <NuxtImg :src="item?.media.url"></NuxtImg>
+            <NuxtImg :src="item?.media?.url"></NuxtImg>
         </RouterLink>
     </div>
 </template>
