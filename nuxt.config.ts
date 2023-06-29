@@ -73,7 +73,8 @@ export default defineNuxtConfig({
             nativeSWR: true,
         },
         routeRules: {
-            '/**': { swr: true },
+            '/*': { isr: true },
+            '/**': { isr: true },
         },
         storage: {
             db: {
