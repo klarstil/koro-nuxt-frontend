@@ -6,6 +6,10 @@ const props = defineProps<{
     product: Product
 }>();
 
+const { product } = toRefs(props);
+
+const { addToCart } = useAddToCart(product);
+
 const reviewCount = computed(() => {
     return props.product.customFields.koro_product_review_count || 0;
 });
@@ -13,7 +17,7 @@ const reviewCount = computed(() => {
 
 <template>
     <div class="product-card mb-8">
-        <div class="product-image-wrapper aspect-5/7 rounded-lg w-full overflow-hidden flex mb-2">
+        <div class="product-image-wrapper aspect-5/7 rounded-lg w-full overflow-hidden flex mb-2 relative">
             <NuxtLink
                 :title="getTranslatedProperty(product, 'name')"
                 :to="`/detail/${product.id}`"
@@ -28,6 +32,16 @@ const reviewCount = computed(() => {
                     height="340"
                 ></NuxtImg>
             </NuxtLink>
+
+            <div class="product-actions absolute bottom-0 right-0 pt-4 pl-4">
+                <button
+                    title="Add to cart"
+                    class="bg-[#97c274] bottom-0 right-0 w-12 h-12 flex justify-center justify-items-center rounded-full"
+                    @click.prevent="addToCart"
+                >
+                    <BaseIcon name="shopping-cart" class="text-white relative top-3"></BaseIcon>
+                </button>
+            </div>
         </div>
 
         <div class="product-rating flex mb-2 text-xs text-gray-600">
@@ -58,3 +72,9 @@ const reviewCount = computed(() => {
         </div>
     </div>
 </template>
+
+<style>
+.product-actions {
+    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2aWV3Qm94PSIwIDAgNjYgNjYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Im02NiAwYzAgMTAtMTAgMTAtMTAgMTBoLTE0czMyIDAgMCAwLTMyIDMyLTMyIDMydjE0IDBjMCAxMC0xMCAxMC0xMCAxMGg2NnYtNjZ6IiBmaWxsPSIjZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4KPC9zdmc+Cg==");
+}
+</style>
