@@ -9,7 +9,6 @@ const props = defineProps<{
 const reviewCount = computed(() => {
     return props.product.customFields.koro_product_review_count || 0;
 });
-console.log(props.product);
 </script>
 
 <template>
@@ -26,12 +25,12 @@ console.log(props.product);
                     sizes="2xl:801px xxl:801px xl:801px lg:801px md:800px sm:400px"
                     class="w-full h-full aspect-5/7 transition-all hover:scale-110"
                     width="235"
-                    height="330"
+                    height="340"
                 ></NuxtImg>
             </NuxtLink>
         </div>
 
-        <div class="product-rating flex mb-2 text-xs">
+        <div class="product-rating flex mb-2 text-xs text-gray-600">
             <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
             {{ product.ratingAverage?.toFixed(2) }}
             <span class="text-gray-500 pl-1">({{ reviewCount }})</span>
