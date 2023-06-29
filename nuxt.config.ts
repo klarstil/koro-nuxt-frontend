@@ -51,6 +51,9 @@ export default defineNuxtConfig({
     },
 
     nitro: {
+        future: {
+            nativeSWR: true,
+        },
         routeRules: {
             '/**': { isr: true },
             '/detail/**': { isr: true },
