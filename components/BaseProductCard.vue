@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Product } from '@shopware-pwa/types';
-import { getFormattedPrice, getTranslatedProperty } from '@shopware-pwa/helpers-next';
+import { getFormattedPrice, getTranslatedProperty, getProductRoute } from '@shopware-pwa/helpers-next';
 
 const props = defineProps<{
     product: Product
@@ -20,7 +20,7 @@ const reviewCount = computed(() => {
         <div class="product-image-wrapper aspect-5/7 rounded-lg w-full overflow-hidden flex mb-2 relative">
             <NuxtLink
                 :title="getTranslatedProperty(product, 'name')"
-                :to="`/detail/${product.id}`"
+                :to="getProductRoute(product)"
                 class="product-image-link aspect-5/7"
             >
                 <NuxtImg
@@ -52,7 +52,7 @@ const reviewCount = computed(() => {
 
         <NuxtLink
             :title="getTranslatedProperty(product, 'name')"
-            :to="`/detail/${product.id}`"
+            :to="getProductRoute(product)"
             class="h-11 mb-2 text-sm font-medium text-gray-900 block"
         >
             {{ getTranslatedProperty(product, 'name') }}

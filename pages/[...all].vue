@@ -28,5 +28,7 @@ const { foreignKey, routeName } = useNavigationContext(
 </script>
 
 <template>
+    <!-- eslint-disable vue/no-multiple-template-root -->
     <PageFrontendNavigationPage v-if="routeName === 'frontend.navigation.page'" :navigation-id="foreignKey"></PageFrontendNavigationPage>
+    <PageFrontendDetailPage v-if="routeName === 'frontend.detail.page'" :navigation-id="foreignKey"></PageFrontendDetailPage>
 </template>
