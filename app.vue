@@ -39,3 +39,9 @@ onMounted(() => {
         <NuxtPage></NuxtPage>
     </NuxtLayout>
 </template>
+
+<style>
+html, body {
+    font-family: Poppins,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+}
+</style>

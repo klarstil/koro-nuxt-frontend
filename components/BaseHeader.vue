@@ -6,29 +6,29 @@ const { totalPrice } = useCart();
 
 <template>
     <nav class="bg-gray-100">
-        <div class="container mx-auto text-zinc-500 text-sm py-2 flex flex-row justify-between">
+        <div class="container mx-auto text-zinc-500 text-xs py-2 flex flex-row justify-between">
             <div class="fast-delivery flex content-center flex-wrap">
-                <BaseIcon name="check" class="text-gray-700 mr-1 relative top-0.5" :width="16" :height="16"></BaseIcon>
+                <BaseIcon name="check" class="text-gray-700 mr-1" :width="16" :height="16"></BaseIcon>
                 Fast delivery
             </div>
 
             <div class="fast-delivery flex content-center flex-wrap">
-                <BaseIcon name="star" class="text-yellow-500 mr-1 relative top-0.5" :width="16" :height="16" :fill="true"></BaseIcon>
-                <BaseIcon name="star" class="text-yellow-500 mr-1  relative top-0.5" :width="16" :height="16" :fill="true"></BaseIcon>
-                <BaseIcon name="star" class="text-yellow-500 mr-1  relative top-0.5" :width="16" :height="16" :fill="true"></BaseIcon>
-                <BaseIcon name="star" class="text-yellow-500 mr-1  relative top-0.5" :width="16" :height="16" :fill="true"></BaseIcon>
-                <BaseIcon name="star" class="text-yellow-500 mr-1  relative top-0.5" :width="16" :height="16" :fill="true"></BaseIcon>
+                <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
+                <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
+                <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
+                <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
+                <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
 
                 (4.8)
             </div>
 
             <div class="fair-prices flex content-center flex-wrap">
-                <BaseIcon name="bar-chart" class="text-gray-700 mr-1  relative top-0.5" :width="16" :height="16"></BaseIcon>
+                <BaseIcon name="bar-chart" class="text-gray-700 mr-1" :width="16" :height="16"></BaseIcon>
                 Fair prices
             </div>
 
             <div class="fair-prices flex content-center flex-wrap">
-                <BaseIcon name="help-circle" class="text-gray-700 mr-1  relative top-0.5" :width="16" :height="16"></BaseIcon>
+                <BaseIcon name="help-circle" class="text-gray-700 mr-1" :width="16" :height="16"></BaseIcon>
                 Service
             </div>
         </div>

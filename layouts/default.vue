@@ -1,6 +1,9 @@
 <template>
-    <div>
+    <div class="app">
         <BaseHeader></BaseHeader>
-        <slot></slot>
+        <main class="container mx-auto">
+            <slot></slot>
+        </main>
+        <BaseFooter></BaseFooter>
     </div>
 </template>

@@ -6,6 +6,7 @@ export default defineNuxtConfig({
         '@vueuse/nuxt',
         '@shopware-pwa/nuxt3-module',
         '@nuxtjs/robots',
+        '@nuxtjs/google-fonts',
     ],
 
     app: {
@@ -102,6 +103,14 @@ export default defineNuxtConfig({
         rules: {
             UserAgent: '*',
             Disallow: '/',
+        },
+    },
+
+    googleFonts: {
+        download: true,
+        inject: true,
+        families: {
+            Poppins: [300, 400, 500, 800],
         },
     },
 });
