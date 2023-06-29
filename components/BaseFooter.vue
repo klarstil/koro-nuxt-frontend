@@ -13,7 +13,7 @@ const { navigationElements } = useNavigation({ type: 'footer-navigation' });
             <div class="main-footer-logo">
                 <NuxtLink to="/">
                     <NuxtImg
-                        src="/66/f7/5b/1662581399/koro-logoPXS2yC9zKwHVo.svg"
+                        src="https://koro.imgix.net/media/66/f7/5b/1662581399/koro-logoPXS2yC9zKwHVo.svg"
                     ></NuxtImg>
                 </NuxtLink>
             </div>

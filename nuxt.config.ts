@@ -84,7 +84,7 @@ export default defineNuxtConfig({
     image: {
         provider: 'imgix',
         imgix: {
-            baseURL: 'https://koro.imgix.net/media',
+            baseURL: '',
             modifiers: {
                 auto: 'format,compress',
             },
@@ -93,6 +93,12 @@ export default defineNuxtConfig({
 
     experimental: {
         componentIslands: true,
+    },
+
+    // Necessary for dynamic component imports to work (e.g. CMS sections, blocks and elements)
+    components: {
+        global: true,
+        dirs: ['~/components'],
     },
 
     devtools: {

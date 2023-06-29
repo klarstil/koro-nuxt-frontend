@@ -2,7 +2,6 @@
 import { Category } from '@shopware-pwa/types';
 import { useCategorySearch } from '@shopware-pwa/composables-next';
 import { Ref } from 'vue';
-import { getCategoryBreadcrumbs } from '@shopware-pwa/helpers-next';
 
 const props = defineProps<{
   navigationId: string;
@@ -24,15 +23,9 @@ const { data: categoryResponse } = await useAsyncData(
     },
 );
 
-const breadcrumbs = getCategoryBreadcrumbs(categoryResponse.value, {
-    startIndex: 2,
-});
-
-useBreadcrumbs(breadcrumbs);
 const { category } = useCategory(categoryResponse as Ref<Category>);
-console.log(category);
 </script>
 
 <template>
-    <h1>FrontendNavigationPage</h1>
+    <CmsPage v-if="category?.cmsPage" :content="category.cmsPage"></CmsPage>
 </template>
