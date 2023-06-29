@@ -3,6 +3,7 @@ import { SeoUrl } from '@shopware-pwa/types';
 
 const { resolvePath } = useNavigationSearch();
 const route = useRoute();
+
 const routePath = route.path;
 const { data: seoResult } = await useAsyncData(
     'cmsResponse' + routePath,

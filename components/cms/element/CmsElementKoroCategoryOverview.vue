@@ -56,7 +56,13 @@ defineProps<{
                 {{ getTranslatedProperty(item, 'name') }}
             </div>
 
-            <NuxtImg :alt="getTranslatedProperty(item, 'name')" :src="item?.media?.url" sizes="2xl:801px xxl:801px xl:801px lg:801px md:800px sm:400px"></NuxtImg>
+            <NuxtImg
+                :alt="getTranslatedProperty(item, 'name')"
+                :src="item?.media?.url"
+                sizes="2xl:801px xxl:801px xl:801px lg:801px md:800px sm:400px"
+                width="300"
+                height="215"
+            ></NuxtImg>
         </RouterLink>
     </div>
 </template>

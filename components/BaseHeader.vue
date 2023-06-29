@@ -37,6 +37,8 @@ const { totalPrice } = useCart();
     <div class="main-header flex flex-row justify-between py-4 container mx-auto">
         <NuxtLink to="/" title="Back to homepage">
             <NuxtImg
+                width="50"
+                height="45"
                 alt="Back to homepage"
                 src="https://koro.imgix.net/media/66/f7/5b/1662581399/koro-logoPXS2yC9zKwHVo.svg"
             ></NuxtImg>
