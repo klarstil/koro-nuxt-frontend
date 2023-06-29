@@ -52,7 +52,6 @@ export default defineNuxtConfig({
 
     nitro: {
         prerender: {
-            crawlLinks: true,
             ignore: [
                 '/',
                 '/blog',
