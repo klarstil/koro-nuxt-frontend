@@ -53,6 +53,22 @@ export default defineNuxtConfig({
     nitro: {
         prerender: {
             crawlLinks: true,
+            ignore: [
+                '/',
+                '/blog',
+            ],
+            routes: [
+                '/nuesse',
+                '/trockenfruechte',
+                '/superfoods',
+                '/snacks',
+                '/fruehstueck',
+                '/kochen-backen',
+                '/supplements',
+                '/getraenke',
+                '/non-food',
+                '/sale',
+            ],
         },
         future: {
             nativeSWR: true,
