@@ -6,7 +6,6 @@ const props = defineProps<{
 }>();
 
 const { search } = useProductSearch();
-const route = useRoute();
 
 const { data: productResponse } = await useAsyncData(
     'cmsProduct' + props.navigationId,
