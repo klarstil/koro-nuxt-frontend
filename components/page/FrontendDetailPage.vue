@@ -65,7 +65,7 @@ onMounted(() => {
                             class="rounded-lg"
                             width="290"
                             height="410"
-                            :src="productMedia.media.url.replace(' ', '%20')"
+                            :src="productMedia.media.url.replaceAll(' ', '%20')"
                             :alt="getTranslatedProperty(product, 'name')"
                         ></NuxtImg>
                     </li>
