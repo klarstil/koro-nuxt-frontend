@@ -91,6 +91,7 @@ const usedIcons = [
     'user',
     'bar-chart',
     'help-circle',
+    'chevron-right',
 ];
 
 </script>
