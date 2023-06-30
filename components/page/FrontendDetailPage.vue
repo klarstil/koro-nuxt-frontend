@@ -22,7 +22,6 @@ const { product } = useProduct(
     productResponse.value?.configurator,
 );
 
-console.log(productResponse.value?.product.seoCategory);
 const breadcrumbs = getCategoryBreadcrumbs(
     productResponse.value?.product.seoCategory,
     {
