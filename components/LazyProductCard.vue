@@ -22,7 +22,6 @@ const { addToCart } = useAddToCart(product);
                     v-if="product.cover.media.thumbnails[1]"
                     :alt="getTranslatedProperty(product, 'name')"
                     :src="product.cover.media.thumbnails[1].url.replaceAll(' ', '%20')"
-                    sizes="2xl:801px xxl:801px xl:801px lg:801px md:800px sm:400px"
                     class="w-full h-full aspect-5/7 transition-all hover:scale-110"
                     width="235"
                     height="340"

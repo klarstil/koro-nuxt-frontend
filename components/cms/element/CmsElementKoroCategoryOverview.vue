@@ -59,7 +59,6 @@ defineProps<{
             <NuxtImg
                 :alt="getTranslatedProperty(item, 'name')"
                 :src="item?.media?.url.replaceAll(' ', '%20')"
-                sizes="2xl:801px xxl:801px xl:801px lg:801px md:800px sm:400px"
                 width="300"
                 height="215"
             ></NuxtImg>

@@ -20,6 +20,10 @@ const { data: categoryResponse } = await useAsyncData(
             },
         });
         return category;
+    }, {
+        transform(response) {
+            return response;
+        },
     },
 );
 
