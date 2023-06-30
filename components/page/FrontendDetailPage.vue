@@ -50,8 +50,6 @@ const loading = ref(true);
 onMounted(() => {
     loading.value = false;
 });
-
-console.log(product.value.customFields);
 </script>
 
 <template>
