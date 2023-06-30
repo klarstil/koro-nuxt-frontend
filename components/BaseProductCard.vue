@@ -7,12 +7,7 @@ const props = defineProps<{
 }>();
 
 const { product } = toRefs(props);
-
 const { addToCart } = useAddToCart(product);
-
-const reviewCount = computed(() => {
-    return props.product.customFields.koro_product_review_count || 0;
-});
 </script>
 
 <template>

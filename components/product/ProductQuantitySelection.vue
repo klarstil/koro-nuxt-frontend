@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Product } from '@shopware-pwa/types';
+import { toRefs, ref } from 'vue';
 
 const props = defineProps<{
     product: Product,
@@ -7,7 +8,9 @@ const props = defineProps<{
 
 const loading = ref(true);
 
-const { addToCart, quantity } = useAddToCart(props.product);
+const { product: productRef } = toRefs(props);
+
+const { addToCart, quantity } = useAddToCart(productRef);
 
 const addToCartProxy = async() => {
     loading.value = true;

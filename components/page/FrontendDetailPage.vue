@@ -28,6 +28,10 @@ const breadcrumbs = getCategoryBreadcrumbs(
         startIndex: 1,
     },
 );
+
+const reviewCount = computed(() => {
+    return product.value.customFields.koro_product_review_count || 0;
+});
 </script>
 
 <template>
@@ -104,146 +108,9 @@ const breadcrumbs = getCategoryBreadcrumbs(
 
             <template #default="{ currentActive }">
                 <TabContent name="desc" :current-active="currentActive" class="pt-4">
-                    <div class="product-description-wrapper flex gap-8">
-                        <!-- eslint-disable-next-line vue/no-v-html -->
-                        <div class="product-description flex-auto w-8/12" v-html="product.description"></div>
-                        <div class="nutrition-details flex-auto w-4/12">
-                            <table class="nutrition-table w-full mb-8 text-[13px]">
-                                <tbody>
-                                    <tr class="text-gray-400">
-                                        <th class="nutrition-label font-medium text-left">
-                                            <span>Average nutritional values</span>
-                                        </th>
-
-                                        <th class="nutrition-value font-medium text-right">
-                                            <span>per 100 g</span>
-                                        </th>
-                                    </tr>
-                                    <tr class="nutrition-row">
-                                        <td class="nutrition-label pt-3">
-                                            <span>Calorific value (in kj/kcal)</span>
-                                        </td>
-
-                                        <td class="nutrition-value text-right pt-3">
-                                            <span>{{ product.customFields.koro_nutrition_energy_kj }} / {{ product.customFields.koro_nutrition_energy }}</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="nutrition-row">
-                                        <td class="nutrition-label pt-3">
-                                            <span>Fat</span>
-                                        </td>
-
-                                        <td class="nutrition-value text-right pt-3">
-                                            <span>{{ product.customFields.koro_nutrition_fat }} g</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="nutrition-row">
-                                        <td class="nutrition-label pt-3">
-                                            <span class="pl-3">thereof saturated fatty acids</span>
-                                        </td>
-
-                                        <td class="nutrition-value text-right pt-3">
-                                            <span>{{ product.customFields.koro_nutrition_fatty_acids }} g</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="nutrition-row">
-                                        <td class="nutrition-label pt-3">
-                                            <span>Carbohydrates</span>
-                                        </td>
-
-                                        <td class="nutrition-value text-right pt-3">
-                                            <span>{{ product.customFields.koro_nutrition_carbohydrates }} g</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="nutrition-row">
-                                        <td class="nutrition-label pt-3">
-                                            <span class="pl-3">thereof sugar</span>
-                                        </td>
-
-                                        <td class="nutrition-value text-right pt-3">
-                                            <span>{{ product.customFields.koro_nutrition_sugar }} g</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="nutrition-row">
-                                        <td class="nutrition-label pt-3">
-                                            <span>Dietary fiber</span>
-                                        </td>
-
-                                        <td class="nutrition-value text-right pt-3">
-                                            <span>{{ product.customFields.koro_nutrition_fiber }} g</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="nutrition-row">
-                                        <td class="nutrition-label pt-3">
-                                            <span>Protein</span>
-                                        </td>
-
-                                        <td class="nutrition-value text-right pt-3">
-                                            <span>{{ product.customFields.koro_nutrition_protein }} g</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="nutrition-row">
-                                        <td class="nutrition-label pt-3">
-                                            <span>Salt</span>
-                                        </td>
-
-                                        <td class="nutrition-value text-right pt-3">
-                                            <span>{{ product.customFields.koro_nutrition_salt }} g</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <LazyProductDescription :product="product"></LazyProductDescription>
                 </TabContent>
             </template>
         </TabPanel>
     </div>
 </template>
-
-<style>
-.product-description {
-    @apply font-light;
-}
-
-.product-description p {
-    @apply mt-2 mb-5;
-}
-
-.product-description a {
-    text-decoration: underline;
-}
-
-.product-description h1,
-.product-description h2,
-.product-description h3,
-.product-description h4,
-.product-description h5,
-.product-description h6 {
-    @apply text-black font-medium antialiased mb-2;
-}
-
-.nutrition-table .nutrition-label,
-.nutrition-table .nutrition-value {
-    vertical-align: bottom;
-    background-image: radial-gradient(#888 1px,#fff 0);
-    background-position: left bottom;
-    background-repeat: repeat-x;
-    background-size: 3px 1px;
-}
-
-.nutrition-table .nutrition-label span,
-.nutrition-table .nutrition-value span {
-    background: #fff;
-    display: inline-block;
-    position: relative;
-    top: 1px;
-}
-</style>
