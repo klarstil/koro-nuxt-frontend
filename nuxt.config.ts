@@ -144,6 +144,7 @@ export default defineNuxtConfig({
     googleFonts: {
         download: true,
         inject: true,
+        base64: true,
         families: {
             Poppins: [300, 400, 500, 800],
         },
