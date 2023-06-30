@@ -18,6 +18,21 @@ const { refreshCart } = useCart();
 
 const { data } = useAsyncData('mainNavigation', () => {
     return loadNavigationElements({ depth: 1 });
+}, {
+    transform(response) {
+        return response.map(({ id, externalLink, linkNewTab, seoUrls, translated, type }) => {
+            return {
+                id,
+                externalLink,
+                linkNewTab,
+                seoUrls,
+                type,
+                translated: {
+                    name: translated.name,
+                },
+            };
+        });
+    },
 });
 provide('swNavigation-main-navigation', data);
 

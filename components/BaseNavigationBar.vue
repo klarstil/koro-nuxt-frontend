@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getCategoryUrl } from '@shopware-pwa/helpers-next';
+import { getCategoryUrl, getTranslatedProperty } from '@shopware-pwa/helpers-next';
 
 const { navigationElements } = useNavigation();
 </script>
@@ -20,7 +20,7 @@ const { navigationElements } = useNavigation();
                             : ''
                     "
                 >
-                    {{ navigationElement.translated.name }}
+                    {{ getTranslatedProperty(navigationElement, 'name') }}
                 </RouterLink>
             </li>
         </ul>

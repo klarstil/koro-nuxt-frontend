@@ -25,7 +25,11 @@ onMounted(() => {
 
 <template>
     <div class="quantity-selection flex">
+        <label for="quantity-selection" class="sr-only">
+            Product quantity
+        </label>
         <input
+            id="quantity-selection"
             v-model="quantity"
             type="number"
             :min="product.minPurchase || 1"
