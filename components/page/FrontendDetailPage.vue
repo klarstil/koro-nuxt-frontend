@@ -22,6 +22,7 @@ const { product } = useProduct(
     productResponse.value?.configurator,
 );
 
+console.log(productResponse.value?.product.seoCategory);
 const breadcrumbs = getCategoryBreadcrumbs(
     productResponse.value?.product.seoCategory,
     {
@@ -55,7 +56,7 @@ const reviewCount = computed(() => {
             </div>
 
             <div class="flex-auto w-5/12 p-8 pr-7 sticky top-0 self-start">
-                <ul class="product-breadcrumb text-gray-400 text-sm mb-8">
+                <ul class="product-breadcrumb text-gray-400 text-sm mb-8 flex">
                     <li
                         v-for="(breadcrumb, index) in breadcrumbs"
                         :key="index"
