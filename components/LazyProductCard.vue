@@ -19,6 +19,7 @@ const { addToCart } = useAddToCart(product);
                 class="product-image-link aspect-5/7"
             >
                 <NuxtImg
+                    v-if="product.cover.media.thumbnails[1]"
                     :alt="getTranslatedProperty(product, 'name')"
                     :src="product.cover.media.thumbnails[1].url.replaceAll(' ', '%20')"
                     sizes="2xl:801px xxl:801px xl:801px lg:801px md:800px sm:400px"
@@ -44,7 +45,7 @@ const { addToCart } = useAddToCart(product);
         <NuxtLink
             :title="getTranslatedProperty(product, 'name')"
             :to="getProductRoute(product)"
-            class="h-11 mb-2 text-sm font-medium text-gray-900 block"
+            class="h-11 mb-2 text-sm font-medium text-gray-900 block line-clamp-2"
         >
             {{ getTranslatedProperty(product, 'name') }}
         </NuxtLink>

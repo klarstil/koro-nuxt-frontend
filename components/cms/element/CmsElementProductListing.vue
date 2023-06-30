@@ -14,10 +14,10 @@ setInitialListing(props?.content?.data?.listing);
 
 <template>
     <div class="grid grid-cols-6 gap-5">
-        <BaseProductCard
+        <LazyProductCard
             v-for="product in getElements"
             :key="product.id"
             :product="product"
-        ></BaseProductCard>
+        ></LazyProductCard>
     </div>
 </template>
