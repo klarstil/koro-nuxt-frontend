@@ -20,13 +20,15 @@ const { data } = useAsyncData('mainNavigation', () => {
     return loadNavigationElements({ depth: 1 });
 }, {
     transform(response) {
-        return response.map(({ id, externalLink, linkNewTab, seoUrls, translated, type }) => {
+        return response.map(({ id, externalLink, linkNewTab, seoUrls, translated, type, linkType, internalLink }) => {
             return {
                 id,
                 externalLink,
                 linkNewTab,
+                internalLink,
                 seoUrls,
                 type,
+                linkType,
                 translated: {
                     name: translated.name,
                 },
@@ -41,6 +43,38 @@ const { loadNavigationElements: loadFooterNavigationElements } = useNavigation({
 });
 const { data: footerData } = useAsyncData('mainFooterNavigation', () => {
     return loadFooterNavigationElements({ depth: 2 });
+}, {
+    transform(response) {
+        return response.map(({ type, linkType, id, internalLink, externalLink, linkNewTab, translated, childCount, children, customFields }) => {
+            return {
+                type,
+                linkType,
+                id,
+                internalLink,
+                externalLink,
+                linkNewTab,
+                translated: {
+                    name: translated.name,
+                },
+                childCount,
+                customFields,
+                children: children?.map(({ type, linkType, id, internalLink, externalLink, linkNewTab, translated, customFields }) => {
+                    return {
+                        type,
+                        linkType,
+                        id,
+                        internalLink,
+                        externalLink,
+                        linkNewTab,
+                        customFields,
+                        translated: {
+                            name: translated.name,
+                        },
+                    };
+                }) || [],
+            };
+        });
+    },
 });
 provide('swNavigation-footer-navigation', footerData);
 
