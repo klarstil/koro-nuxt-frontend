@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// eslint-disable vue/no-multiple-template-root
 import { getSessionContext } from '@shopware-pwa/api-client';
 import { SessionContext } from '@shopware-pwa/types';
 
@@ -81,9 +82,22 @@ provide('swNavigation-footer-navigation', footerData);
 onMounted(() => {
     refreshCart();
 });
+
+const usedIcons = [
+    'shopping-cart',
+    'star',
+    'check',
+    'heart',
+    'user',
+    'bar-chart',
+    'help-circle',
+];
+
 </script>
 
 <template>
+    <!-- eslint-disable vue/no-multiple-template-root -->
+    <DynamicIconRenderer :used-icons="usedIcons"></DynamicIconRenderer>
     <NuxtLayout>
         <NuxtPage></NuxtPage>
     </NuxtLayout>

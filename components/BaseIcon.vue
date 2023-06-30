@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { icons, FeatherIcon } from 'feather-icons';
 
-export interface IconProps {
+interface IconProps {
     name: string,
     height?: number,
     width?: number,
@@ -9,19 +8,15 @@ export interface IconProps {
     fill?: boolean
 }
 
-const props = withDefaults(defineProps<IconProps>(), {
+withDefaults(defineProps<IconProps>(), {
     height: 24,
     width: 24,
     strokeWidth: 2,
     fill: false,
 });
-
-// @ts-ignore
-const content = toRef<FeatherIcon>(icons[props.name].contents);
 </script>
 
 <template>
-    <!-- eslint-disable vue/no-v-html -->
     <svg
         xmlns="http://www.w3.org/2000/svg"
         :width="width"
@@ -34,7 +29,7 @@ const content = toRef<FeatherIcon>(icons[props.name].contents);
         stroke-linejoin="round"
         class="feather"
         :class="`feather-${name}`"
-        v-html="content"
     >
+        <use :href="`#${name}`"></use>
     </svg>
 </template>
