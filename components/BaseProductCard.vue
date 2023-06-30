@@ -44,11 +44,7 @@ const reviewCount = computed(() => {
             </div>
         </div>
 
-        <div class="product-rating flex mb-2 text-xs text-gray-600">
-            <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
-            {{ product.ratingAverage?.toFixed(2) }}
-            <span class="text-gray-500 pl-1">({{ reviewCount }})</span>
-        </div>
+        <ProductRating :product="product" class="mb-2 text-xs"></ProductRating>
 
         <NuxtLink
             :title="getTranslatedProperty(product, 'name')"

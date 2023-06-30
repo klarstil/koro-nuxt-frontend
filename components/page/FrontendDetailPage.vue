@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getTranslatedProperty, getCategoryBreadcrumbs, getFormattedPrice } from '@shopware-pwa/helpers-next';
+import { getTranslatedProperty, getCategoryBreadcrumbs } from '@shopware-pwa/helpers-next';
 
 const props = defineProps<{
   navigationId: string;
@@ -22,34 +22,12 @@ const { product } = useProduct(
     productResponse.value?.configurator,
 );
 
-const { addToCart, quantity } = useAddToCart(product);
-
 const breadcrumbs = getCategoryBreadcrumbs(
     productResponse.value?.product.seoCategory,
     {
         startIndex: 1,
     },
 );
-
-const reviewCount = computed(() => {
-    return productResponse.value?.product.customFields.koro_product_review_count || 0;
-});
-
-const buyingArguments = computed(() => {
-    const buyingArgumentRaw = productResponse.value?.product.customFields.koro_buying_arguments as string;
-    return buyingArgumentRaw.split('\n');
-});
-
-const loading = ref(true);
-
-const addToCartProxy = async() => {
-    loading.value = true;
-    await addToCart();
-    loading.value = false;
-};
-onMounted(() => {
-    loading.value = false;
-});
 </script>
 
 <template>
@@ -84,66 +62,16 @@ onMounted(() => {
                     </li>
                 </ul>
 
-                <div class="product-rating flex mb-2 text-sm text-gray-600">
-                    <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
-                    {{ product.ratingAverage?.toFixed(2) }}
-                    <span class="text-gray-500 pl-1">({{ reviewCount }})</span>
-                </div>
+                <ProductRating :product="product" class="mb-2 text-sm"></ProductRating>
 
                 <h1 class="product-name text-2xl font-extrabold mb-8">
                     {{ getTranslatedProperty(product, 'name') }}
                 </h1>
 
-                <div class="product-price-container text-black text-xl">
-                    <span class="text-black text-xl">
-                        {{ getFormattedPrice(product.calculatedPrice.unitPrice, '€') }}
-                    </span>
+                <ProductPrice :product="product"></ProductPrice>
 
-                    <span
-                        v-if="product.calculatedCheapestPrice.referencePrice"
-                        class="text-gray-500 text-sm pl-2"
-                    >
-                        {{ getFormattedPrice(product.calculatedCheapestPrice.referencePrice.price, '€') }}
-                        per
-                        {{ product.calculatedCheapestPrice.referencePrice.referenceUnit }}
-                        {{ product.calculatedCheapestPrice.referencePrice.unitName }}
-                    </span>
-
-                    <div class="product-vat-notice text-gray-400 text-xs mb-8">
-                        Prices incl. VAT plus shipping costs
-                    </div>
-                </div>
-
-                <ul class="buying-arguments mb-8">
-                    <li
-                        v-for="(buyingArgument, index) in buyingArguments"
-                        :key="index"
-                        class="flex text-gray-500 font-light"
-                    >
-                        <BaseIcon name="check" :width="22" :height="22" class="flex-auto w-1/12"></BaseIcon>
-                        <span class="flex-auto w-11/12">{{ buyingArgument }}</span>
-                    </li>
-                </ul>
-
-                <div class="quantity-selection flex">
-                    <input
-                        v-model="quantity"
-                        type="number"
-                        :min="product.minPurchase || 1"
-                        :max="product.calculatedMaxPurchase"
-                        :step="product.purchaseSteps || 1"
-                        class="flex-auto w-2/12 mr-2 px-2 bg-gray-100"
-                    >
-                    <button
-                        :disabled="loading"
-                        title="Add to shooping cart"
-                        class="flex flex-auto w-11/12 justify-center justify-items-center bg-[#97c274] py-2.5 relative text-white text-sm disabled:opacity-80"
-                        @click.prevent="addToCartProxy"
-                    >
-                        Add to shopping cart
-                        <BaseIcon name="chevron-right" :width="16" :height="16" class="absolute right-2 top-3"></BaseIcon>
-                    </button>
-                </div>
+                <ProductBuyingArguments :product="product"></ProductBuyingArguments>
+                <ProductQuantitySelection :product="product"></ProductQuantitySelection>
             </div>
         </div>
 
