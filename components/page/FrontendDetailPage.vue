@@ -6,6 +6,7 @@ const props = defineProps<{
 }>();
 
 const { search } = useProductSearch();
+const route = useRoute();
 
 const { data: productResponse } = await useAsyncData(
     'cmsProduct' + props.navigationId,
@@ -40,13 +41,13 @@ const buyingArguments = computed(() => {
     return buyingArgumentRaw.split('\n');
 });
 
+const loading = ref(true);
+
 const addToCartProxy = async() => {
     loading.value = true;
     await addToCart();
     loading.value = false;
 };
-
-const loading = ref(true);
 onMounted(() => {
     loading.value = false;
 });
@@ -253,7 +254,7 @@ onMounted(() => {
 
                                     <tr class="nutrition-row">
                                         <td class="nutrition-label pt-3">
-                                            Protein
+                                            <span>Protein</span>
                                         </td>
 
                                         <td class="nutrition-value text-right pt-3">
