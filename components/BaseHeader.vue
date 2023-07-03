@@ -2,6 +2,8 @@
 import { getFormattedPrice } from '@shopware-pwa/helpers-next';
 
 const { totalPrice } = useCart();
+
+const sidebarController = useOffcanvas();
 </script>
 
 <template>
@@ -54,10 +56,12 @@ const { totalPrice } = useCart();
             <BaseIcon name="user" class="text-gray-700 mx-4"></BaseIcon>
         </button>
 
-        <button class="flex justify-between hover:bg-gray-100 rounded-lg content-center flex-wrap px-4" title="Shopping cart">
+        <button class="flex justify-between hover:bg-gray-100 rounded-lg content-center flex-wrap px-4" title="Shopping cart" @click="sidebarController.open">
             <BaseIcon name="shopping-cart" class="text-gray-700 mr-2"></BaseIcon>
             {{ getFormattedPrice(totalPrice, '€') }}
         </button>
+
+        <OffcanvasDrawer :controller="sidebarController"></OffcanvasDrawer>
     </div>
 
     <BaseNavigationBar></BaseNavigationBar>
