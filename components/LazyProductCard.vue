@@ -8,6 +8,14 @@ const props = defineProps<{
 
 const { product } = toRefs(props);
 const { addToCart } = useAddToCart(product);
+
+const loading = ref(false);
+
+const addToCartProxy = async() => {
+    loading.value = true;
+    await addToCart();
+    loading.value = false;
+};
 </script>
 
 <template>
@@ -30,9 +38,10 @@ const { addToCart } = useAddToCart(product);
 
             <div class="product-actions absolute bottom-0 right-0 pt-4 pl-4">
                 <button
+                    :disabled="loading"
                     title="Add to cart"
                     class="bg-[#97c274] bottom-0 right-0 w-12 h-12 flex justify-center justify-items-center rounded-full"
-                    @click.prevent="addToCart"
+                    @click.prevent="addToCartProxy"
                 >
                     <BaseIcon name="shopping-cart" class="text-white relative top-3"></BaseIcon>
                 </button>
