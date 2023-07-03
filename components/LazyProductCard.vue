@@ -40,7 +40,7 @@ const addToCartProxy = async() => {
                 <button
                     :disabled="loading"
                     title="Add to cart"
-                    class="bg-[#97c274] bottom-0 right-0 w-12 h-12 flex justify-center justify-items-center rounded-full"
+                    class="bg-[#97c274] bottom-0 right-0 w-12 h-12 flex justify-center justify-items-center rounded-full disabled:opacity-80"
                     @click.prevent="addToCartProxy"
                 >
                     <BaseIcon name="shopping-cart" class="text-white relative top-3"></BaseIcon>
