@@ -4,6 +4,7 @@ import { SeoUrl } from '@shopware-pwa/types';
 declare type CachedSeoUrlEntity = {
   seoUrlEntity: SeoUrl | null;
   expire: number;
+  lastModified: number;
 };
 
 const hash = (str: string): number => {
@@ -23,7 +24,7 @@ const resolvePath = async(path: string) => {
                     {
                         type: 'equals',
                         field: 'seoPathInfo',
-                        value: path,
+                        value: path.substring(1),
                     },
                 ],
             }),
@@ -34,18 +35,25 @@ const resolvePath = async(path: string) => {
         },
     );
 
-    return await data.json();
+    const response = await data.json();
+    return response.elements[0];
 };
 
 export default defineEventHandler(async(event: H3Event) => {
-    const categoryPath = event.context?.params?._;
+    const { categoryPath, refresh } = getQuery(event);
+    const path = categoryPath as string;
 
     if (!categoryPath) {
         throw createError('Missing path GET parameter');
     }
 
-    const storage = useStorage('db');
-    const cacheKey = `seo-url${hash(categoryPath)}`;
+    const storage = useStorage('cache');
+    const cacheKey = `seo-url${hash(path)}`;
+    const response = event.node.res;
+
+    if (refresh) {
+        await storage.removeItem(cacheKey);
+    }
 
     const cacheEntry: CachedSeoUrlEntity | null = (await storage.getItem(
         cacheKey,
@@ -53,25 +61,32 @@ export default defineEventHandler(async(event: H3Event) => {
 
     if (cacheEntry) {
         if (cacheEntry.expire > Date.now()) {
+            response.setHeader('X-Cache-Hit', 'hit');
+            response.setHeader('Expires', new Date(cacheEntry.expire).toUTCString());
+            response.setHeader('Last-Modified', new Date(cacheEntry.lastModified).toUTCString());
+            response.setHeader('Etag', `W${cacheKey}`);
+
             return cacheEntry?.seoUrlEntity;
         } else {
             storage.removeItem(cacheKey);
         }
     }
 
-    const seoUrl = await resolvePath(categoryPath);
+    const seoUrl = await resolvePath(path);
 
-    const headers = event.node.res.getHeaders();
-    headers.etag = headers.Etag || headers.etag || `W${cacheKey}`;
-    headers['last-modified'] =
-    headers['Last-Modified'] ||
-    headers['last-modified'] ||
-    new Date().toUTCString();
+    const now = new Date().toUTCString();
+    const expires = new Date(Date.now() + 1000 * 60 * 60).toUTCString();
+
+    response.setHeader('X-Cache-Hit', 'miss');
+    response.setHeader('Etag', `W${cacheKey}`);
+    response.setHeader('Last-Modified', now);
+    response.setHeader('Expires', expires);
 
     const cachedSeoUrl = {
         seoUrlEntity: seoUrl,
         // cache seo-url for 1 hour  (3600000 ms)
         expire: Date.now() + 1000 * 60 * 60,
+        lastModified: Date.now(),
     };
 
     storage.setItem(cacheKey, cachedSeoUrl);

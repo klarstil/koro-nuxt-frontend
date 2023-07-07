@@ -5,23 +5,7 @@ const route = useRoute();
 
 const routePath = route.path;
 
-const { data: seoResult } = await useAsyncData(
-    'cmsResponse' + routePath,
-    async() => {
-    // For client links if the history state contains seo url information we can omit the api call
-        if (process.client) {
-            if (history.state?.routeName) {
-                return {
-                    routeName: history.state?.routeName,
-                    foreignKey: history.state?.foreignKey,
-                };
-            }
-        }
-        const { data } = await useFetch(`/api/seo-url/${routePath}`);
-        // @ts-ignore
-        return data?.elements[0];
-    },
-);
+const { data: seoResult } = await useFetch(`/api/seo-url?categoryPath=${routePath}`);
 
 const { foreignKey, routeName } = useNavigationContext(
   seoResult as Ref<SeoUrl>,
@@ -29,7 +13,8 @@ const { foreignKey, routeName } = useNavigationContext(
 </script>
 
 <template>
-    <!-- eslint-disable vue/no-multiple-template-root -->
-    <PageFrontendNavigationPage v-if="routeName === 'frontend.navigation.page'" :navigation-id="foreignKey"></PageFrontendNavigationPage>
-    <PageFrontendDetailPage v-if="routeName === 'frontend.detail.page'" :navigation-id="foreignKey"></PageFrontendDetailPage>
+    <div class="catch-all">
+        <PageFrontendNavigationPage v-if="routeName === 'frontend.navigation.page'" :navigation-id="foreignKey"></PageFrontendNavigationPage>
+        <PageFrontendDetailPage v-if="routeName === 'frontend.detail.page'" :navigation-id="foreignKey"></PageFrontendDetailPage>
+    </div>
 </template>
