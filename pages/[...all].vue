@@ -17,7 +17,7 @@ const { data: seoResult } = await useAsyncData(
                 };
             }
         }
-        const data = await $fetch(`/api/seo-url/${routePath}`);
+        const { data } = await useFetch(`/api/seo-url/${routePath}`);
         // @ts-ignore
         return data?.elements[0];
     },
