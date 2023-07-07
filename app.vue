@@ -92,16 +92,19 @@ const usedIcons = [
     'bar-chart',
     'help-circle',
     'chevron-right',
+    'chevron-left',
+    'x',
 ];
 
 </script>
 
 <template>
-    <!-- eslint-disable vue/no-multiple-template-root -->
-    <DynamicIconRenderer :used-icons="usedIcons"></DynamicIconRenderer>
-    <NuxtLayout>
-        <NuxtPage></NuxtPage>
-    </NuxtLayout>
+    <div class="nuxt-app">
+        <DynamicIconRenderer :used-icons="usedIcons"></DynamicIconRenderer>
+        <NuxtLayout>
+            <NuxtPage></NuxtPage>
+        </NuxtLayout>
+    </div>
 </template>
 
 <style>

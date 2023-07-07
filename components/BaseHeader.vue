@@ -3,7 +3,7 @@ import { getFormattedPrice } from '@shopware-pwa/helpers-next';
 
 const { totalPrice } = useCart();
 
-const sidebarController = useOffcanvas();
+const sidebarController = useOffcanvasDrawer();
 </script>
 
 <template>
@@ -20,7 +20,6 @@ const sidebarController = useOffcanvas();
                 <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
                 <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
                 <BaseIcon name="star" class="text-yellow-500 mr-1" :width="16" :height="16" :fill="true"></BaseIcon>
-
                 (4.8)
             </div>
 
@@ -61,7 +60,7 @@ const sidebarController = useOffcanvas();
             {{ getFormattedPrice(totalPrice, '€') }}
         </button>
 
-        <OffcanvasDrawer :controller="sidebarController"></OffcanvasDrawer>
+        <OffcanvasDrawer :side="right" :controller="sidebarController"></OffcanvasDrawer>
     </div>
 
     <BaseNavigationBar></BaseNavigationBar>

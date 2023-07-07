@@ -6,6 +6,8 @@ const props = defineProps<{
     product: Product
 }>();
 
+const sidebarController = useOffcanvasDrawer();
+
 const { product } = toRefs(props);
 const { addToCart } = useAddToCart(product);
 
@@ -15,6 +17,7 @@ const addToCartProxy = async() => {
     loading.value = true;
     await addToCart();
     loading.value = false;
+    sidebarController.open();
 };
 </script>
 

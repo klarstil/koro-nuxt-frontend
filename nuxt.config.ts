@@ -9,6 +9,8 @@ export default defineNuxtConfig({
         '@nuxtjs/google-fonts',
     ],
 
+    ssr: true,
+
     app: {
         head: {
             title: '❗ DEV KoRo: Top-Qualität in günstigen Großpackungen | KoRo Germany',
@@ -69,9 +71,6 @@ export default defineNuxtConfig({
                 '/sale',
             ],
         },
-        future: {
-            nativeSWR: true,
-        },
         routeRules: {
             '/*': { isr: true },
             '/**': { isr: true },
@@ -118,16 +117,6 @@ export default defineNuxtConfig({
                 auto: 'format,compress',
             },
         },
-    },
-
-    experimental: {
-        componentIslands: true,
-    },
-
-    // Necessary for dynamic component imports to work (e.g. CMS sections, blocks and elements)
-    components: {
-        global: true,
-        dirs: ['~/components'],
     },
 
     devtools: {
