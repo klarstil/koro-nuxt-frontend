@@ -1,6 +1,5 @@
 import { defineEventHandler, H3Event } from 'h3';
 import { SeoUrl } from '@shopware-pwa/types';
-import { createStorage } from 'unstorage';
 
 declare type CachedSeoUrlEntity = {
   seoUrlEntity: SeoUrl | null;
@@ -45,7 +44,7 @@ export default defineEventHandler(async(event: H3Event) => {
         throw createError('Missing path GET parameter');
     }
 
-    const storage = createStorage();
+    const storage = useStorage('db');
     const cacheKey = `seo-url${hash(categoryPath)}`;
 
     const cacheEntry: CachedSeoUrlEntity | null = (await storage.getItem(
