@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { SeoUrl } from '@shopware-pwa/types';
 
-const { resolvePath } = useNavigationSearch();
 const route = useRoute();
 
 const routePath = route.path;
+
 const { data: seoResult } = await useAsyncData(
     'cmsResponse' + routePath,
     async() => {
@@ -17,8 +17,9 @@ const { data: seoResult } = await useAsyncData(
                 };
             }
         }
-        const seoUrl = await resolvePath(routePath);
-        return seoUrl;
+        const data = await $fetch(`/api/seo-url/${routePath}`);
+        // @ts-ignore
+        return data?.elements[0];
     },
 );
 

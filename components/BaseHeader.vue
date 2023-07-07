@@ -60,7 +60,7 @@ const sidebarController = useOffcanvasDrawer();
             {{ getFormattedPrice(totalPrice, '€') }}
         </button>
 
-        <OffcanvasDrawer :side="right" :controller="sidebarController"></OffcanvasDrawer>
+        <OffcanvasDrawer side="right" :controller="sidebarController"></OffcanvasDrawer>
     </div>
 
     <BaseNavigationBar></BaseNavigationBar>
