@@ -64,7 +64,7 @@ export default defineEventHandler(async(event: H3Event) => {
         throw createError('Named parameter "category" not found');
     }
 
-    const storage = useStorage('cache');
+    const storage = useStorage();
     const cacheKey = `category${hash(categoryId)}`;
     const response = event.node.res;
 
