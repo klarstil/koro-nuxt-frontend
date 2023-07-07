@@ -43,10 +43,6 @@ export default defineEventHandler(async(event: H3Event) => {
     const { categoryPath, refresh } = getQuery(event);
     const path = categoryPath as string;
 
-    if (!categoryPath) {
-        throw createError('Missing path GET parameter');
-    }
-
     const storage = useStorage('cache');
     const cacheKey = `seo-url${hash(path)}`;
     const response = event.node.res;
