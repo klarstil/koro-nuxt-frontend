@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { getFormattedPrice } from '@shopware-pwa/helpers-next';
 import OffcanvasCartItem from './OffcanvasCartItem.vue';
 
-const { cartItems, isEmpty } = useCart();
+const { cartItems, isEmpty, subtotal, shippingTotal } = useCart();
 const props = withDefaults(
     defineProps<{
     controller: ReturnType<typeof useOffcanvasDrawer>;
@@ -35,6 +36,26 @@ const { isOpen, close } = controller.value;
 
                 <div v-if="!isEmpty" class="p-4">
                     <OffcanvasCartItem v-for="cartItem in cartItems" :key="cartItem.id" :cart-item="cartItem"></OffcanvasCartItem>
+
+                    <div class="mt-6 summary border-t-2 border-gray-200 text-sm">
+                        <div class="flex mt-4">
+                            <div class="flex-auto">
+                                Subtotal
+                            </div>
+                            <div class="flex-auto text-right text-base">
+                                {{ getFormattedPrice(subtotal, '€') }}
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="flex-auto">
+                                Shipping costs
+                            </div>
+                            <div class="flex-auto text-right  text-base">
+                                +{{ getFormattedPrice(shippingTotal, '€') }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div v-else class="empty-cart p-4 m-4 text-sm text-blue-800 rounded-lg bg-blue-50">
