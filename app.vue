@@ -96,6 +96,8 @@ const usedIcons = [
     'x',
 ];
 
+provide('urlPrefix', 'de-DE');
+
 </script>
 
 <template>

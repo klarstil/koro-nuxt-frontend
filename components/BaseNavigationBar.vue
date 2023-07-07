@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getCategoryUrl, getTranslatedProperty } from '@shopware-pwa/helpers-next';
+import { getCategoryRoute, getTranslatedProperty } from '@shopware-pwa/helpers-next';
 
 const { navigationElements } = useNavigation();
 </script>
@@ -13,7 +13,7 @@ const { navigationElements } = useNavigation();
             >
                 <RouterLink
                     class="text-xs hover:border-b-2 hover:border-black"
-                    :to="getCategoryUrl(navigationElement)"
+                    :to="getCategoryRoute(navigationElement)"
                     :target="
                         navigationElement.externalLink || navigationElement.linkNewTab
                             ? '_blank'
