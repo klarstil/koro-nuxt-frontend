@@ -33,6 +33,7 @@ const addToCartProxy = async() => {
                     v-if="product.cover.media.thumbnails[1]"
                     :alt="getTranslatedProperty(product, 'name')"
                     :src="product.cover.media.thumbnails[1].url.replaceAll(' ', '%20')"
+                    :placeholder="`${product.cover.media.thumbnails[1].url.replaceAll(' ', '%20')}&blur=200`"
                     class="w-full h-full aspect-5/7 transition-all hover:scale-110"
                     width="235"
                     height="340"

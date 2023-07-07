@@ -59,6 +59,7 @@ defineProps<{
             <NuxtImg
                 :alt="getTranslatedProperty(item, 'name')"
                 :src="item?.media?.url.replaceAll(' ', '%20')"
+                :placeholder="`${item?.media?.url.replaceAll(' ', '%20')}&blur=200`"
                 width="300"
                 height="215"
             ></NuxtImg>

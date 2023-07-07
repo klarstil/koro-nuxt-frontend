@@ -48,6 +48,7 @@ const reviewCount = computed(() => {
                             width="290"
                             height="410"
                             :src="productMedia.media.url.replaceAll(' ', '%20')"
+                            :placeholder="`${productMedia.media.url.replaceAll(' ', '%20')}&blur=200`"
                             :alt="getTranslatedProperty(product, 'name')"
                         ></NuxtImg>
                     </li>

@@ -8,6 +8,12 @@ const props = defineProps<{
 
 const { data: categoryResponse } = await useFetch(`/api/category/${props.navigationId}`);
 const { category } = useCategory(categoryResponse as Ref<Category>);
+
+useSeoMeta({
+    title: category.value.metaTitle,
+    titleTemplate: title => `❗ ${title} | KoRo Germany`,
+    description: category.value.metaDescription,
+});
 </script>
 
 <template>
