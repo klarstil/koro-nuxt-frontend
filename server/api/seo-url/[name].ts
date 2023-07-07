@@ -24,7 +24,7 @@ const resolvePath = async(path: string) => {
                     {
                         type: 'equals',
                         field: 'seoPathInfo',
-                        value: path.substring(1),
+                        value: path,
                     },
                 ],
             }),
@@ -40,18 +40,14 @@ const resolvePath = async(path: string) => {
 };
 
 export default defineEventHandler(async(event: H3Event) => {
-    const { category, refresh } = getQuery(event);
+    const category = event.context.params?.name;
     const path = category as string;
 
-    console.log({ requestedPath: path, query: getQuery(event), request: event.node.req });
+    console.log({ params: event.context.params, category, path });
 
     const storage = useStorage('cache');
     const cacheKey = `seo-url${hash(path)}`;
     const response = event.node.res;
-
-    if (refresh) {
-        await storage.removeItem(cacheKey);
-    }
 
     const cacheEntry: CachedSeoUrlEntity | null = (await storage.getItem(
         cacheKey,

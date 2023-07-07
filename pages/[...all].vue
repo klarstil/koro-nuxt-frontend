@@ -5,7 +5,7 @@ const route = useRoute();
 
 const routePath = route.path;
 
-const { data: seoResult } = await useFetch(`/api/seo-url?category=${routePath}`);
+const { data: seoResult } = await useFetch(`/api/seo-url/${routePath.substring(1)}`);
 
 const { foreignKey, routeName } = useNavigationContext(
   seoResult as Ref<SeoUrl>,
