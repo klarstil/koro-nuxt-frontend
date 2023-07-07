@@ -43,6 +43,8 @@ export default defineEventHandler(async(event: H3Event) => {
     const { categoryPath, refresh } = getQuery(event);
     const path = categoryPath as string;
 
+    console.log({ requestedPath: path });
+
     const storage = useStorage('cache');
     const cacheKey = `seo-url${hash(path)}`;
     const response = event.node.res;
