@@ -40,8 +40,8 @@ const resolvePath = async(path: string) => {
 };
 
 export default defineEventHandler(async(event: H3Event) => {
-    const { categoryPath, refresh } = getQuery(event);
-    const path = categoryPath as string;
+    const { category, refresh } = getQuery(event);
+    const path = category as string;
 
     console.log({ requestedPath: path, query: getQuery(event) });
 
