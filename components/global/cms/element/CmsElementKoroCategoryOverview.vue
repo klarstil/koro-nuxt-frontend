@@ -44,7 +44,7 @@ defineProps<{
 </script>
 
 <template>
-    <div class="koro-category-overview grid gap-2" :class="`grid-cols-${content.config.itemsPerRow.value + 1}`">
+    <div class="koro-category-overview grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-4" :class="`xl:grid-cols-${content.config.itemsPerRow.value + 1}`">
         <RouterLink
             v-for="item in content.data"
             :key="item.id"

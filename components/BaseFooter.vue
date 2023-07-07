@@ -9,7 +9,7 @@ const { navigationElements } = useNavigation({ type: 'footer-navigation' });
 
 <template>
     <footer class="main-footer container mx-auto">
-        <div class="grid gap-4 grid-cols-5 py-12">
+        <div class="grid gap-4 grid-cols-1 lg:grid-cols-4 py-12">
             <div class="main-footer-logo">
                 <NuxtLink to="/" title="Back to homepage">
                     <NuxtImg
@@ -58,13 +58,13 @@ const { navigationElements } = useNavigation({ type: 'footer-navigation' });
         </div>
     </footer>
     <div class="footer-bottom bg-gray-100 py-8">
-        <div class="container mx-auto flex flex-row flex-auto justify-between text-gray-400">
-            <div class="copyright-vat-notice text-xs w-10/12">
+        <div class="container mx-auto block lg:flex flex-row flex-auto justify-between text-gray-400">
+            <div class="copyright-vat-notice text-xs w-12/12 lg:w-10/12">
                 <p>© KoRo 2023 . Alle Rechte vorbehalten.</p>
                 <p>Alle Preise inkl. gesetzl. Mehrwertsteuer zzgl. Versandkosten und ggf. Nachnahmegebühren, wenn nicht anders angegeben.</p>
             </div>
 
-            <div class="made-with-love w-2/12 text-sm self-center">
+            <div class="made-with-love w-12/12 lg:w-2/12 text-sm self-center">
                 Made with 🔥  in Berlin
             </div>
         </div>

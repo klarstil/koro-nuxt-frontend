@@ -5,7 +5,7 @@ const { navigationElements } = useNavigation();
 </script>
 
 <template>
-    <nav class="container mx-auto">
+    <nav class="container overflow-scroll lg:overflow-auto mx-auto">
         <ul class="flex flex-row gap-10 whitespace-nowrap">
             <li
                 v-for="navigationElement in navigationElements"

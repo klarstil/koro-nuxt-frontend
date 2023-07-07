@@ -7,7 +7,7 @@ const sidebarController = useOffcanvasDrawer();
 </script>
 
 <template>
-    <nav class="bg-gray-100">
+    <nav class="bg-gray-100 hidden lg:block">
         <div class="container mx-auto text-zinc-500 text-xs py-2 flex flex-row justify-between">
             <div class="fast-delivery flex content-center flex-wrap">
                 <BaseIcon name="check" class="text-gray-700 mr-1" :width="16" :height="16"></BaseIcon>
@@ -45,7 +45,7 @@ const sidebarController = useOffcanvasDrawer();
             ></NuxtImg>
         </NuxtLink>
 
-        <input type="search" class="grow bg-gray-100 text-gray-900 text-sm rounded-lg mx-4 px-6" placeholder="Search products...">
+        <input type="search" class="grow hidden lg:block bg-gray-100 text-gray-900 text-sm rounded-lg mx-4 px-6" placeholder="Search products...">
 
         <button class="hover:bg-gray-100 rounded-lg" title="Wishlist">
             <BaseIcon name="heart" class="text-gray-700 mx-4"></BaseIcon>
